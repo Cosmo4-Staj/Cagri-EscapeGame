@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    GameManager gameManager;
     public GameObject Planet;
     public float speed =4;
     float gravity=100;
     bool OnGround = false;
     float distanceToGround;
     Vector3 GroundNormal;
-
     private Rigidbody rb;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +22,21 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!GameManager.isGameStarted || GameManager.isGameEnded) // Oyun baslamadiysa veya bittiyse
+        {
+            return;
+        }
+
         transform.Translate(Vector3.forward * (speed) * Time.deltaTime); // ileri dogru hareket
 
         if (Input.GetKey(KeyCode.A))//sola donus
         {
-            transform.Rotate(0,-150*Time.deltaTime,0);
+            transform.Rotate(0,-180*Time.deltaTime,0);
         }
         if (Input.GetKey(KeyCode.D))//saga donus
         {
-            transform.Rotate(0,150*Time.deltaTime,0);
+            transform.Rotate(0,180*Time.deltaTime,0);
         }
 
         RaycastHit hit= new RaycastHit();
