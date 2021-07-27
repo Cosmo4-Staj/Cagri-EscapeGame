@@ -14,8 +14,12 @@ public class TriggerControl : MonoBehaviour
     {
         
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision other)
     {
+        if (other.transform.tag.Equals("Meteor")) //Arac Meteora carpti mi?
+        {
+            GameManager.instance.OnLevelCompleted();
+        }
         
     }
     private void OnCollisionStay(Collision collision)
@@ -28,13 +32,6 @@ public class TriggerControl : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag.Equals("Meteor")) //Arac Meteora carpti mi?
-        {
-            GameManager.instance.OnLevelFailed();
-            //FindObjectOfType<AudioManager>().PlaySound("PickUpPart");
-            //Destroy(other.gameObject); // yem'i yok et
-            //CandleScale.instance.GetPartOfMum(); //fonk. cagir
-        }
 
     }
     private void OnTriggerStay(Collider other)

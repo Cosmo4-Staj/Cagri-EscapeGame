@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public static bool isGameStarted = true;
+    public static bool isGameStarted = false;
     public static bool isGameEnded = false;
     public GameObject finishScreen;
     public GameObject startScreen;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
      // Start is called before the first frame update
     void Start()
     {
-        isGameStarted = true;
+        isGameStarted = false;
         isGameEnded = false;
     }
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public void OnLevelStarted()
     {
         isGameStarted = true;
-        //startScreen.SetActive(false);
+        startScreen.SetActive(false);
     }
     public void OnLevelEnded()
     {
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     }
     public void OnLevelCompleted() // Bitis ekranini cagirma
     {
-        //finishScreen.SetActive(true);
+        gameOverScreen.SetActive(true);
         isGameEnded = true;
     }
 
@@ -55,6 +55,6 @@ public class GameManager : MonoBehaviour
     }
     public void Restart ()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Game");
     }
 }

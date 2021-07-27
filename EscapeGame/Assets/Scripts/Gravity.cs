@@ -6,7 +6,7 @@ public class Gravity : MonoBehaviour
 {
 
     public GameObject Planet;
-    float gravity=1;
+    public float gravity=1;
     bool OnGround = false;
     float distanceToGround;
     Vector3 GroundNormal;

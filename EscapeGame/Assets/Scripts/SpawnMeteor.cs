@@ -13,23 +13,30 @@ public class SpawnMeteor : MonoBehaviour
 
     void Start()
     {
-        if (!GameManager.isGameStarted || GameManager.isGameEnded) // Oyun baslamadiysa veya bittiyse
+        //StartCoroutine(Spawner());
+    }
+    
+    void Update()
+    {
+    if (!GameManager.isGameStarted || GameManager.isGameEnded) // Oyun baslamadiysa veya bittiyse
         {
             return;
         }
-        StartCoroutine(Spawner());
-    }
-    
-    IEnumerator Spawner()
-    {
         while(count<10)
         {
             xPos=  Random.Range(-20,20);
             yPos=  Random.Range(-20,20);
             zPos=  Random.Range(-20,20);
             Instantiate(meteor,new Vector3(xPos,yPos,zPos),Quaternion.identity);
-            yield return new WaitForSeconds(1f);
+            StartCoroutine(Spawner());
             count+=1;
         }
+    
+
+
+    }
+    IEnumerator Spawner()
+    {
+            yield return new WaitForSeconds(seconds: 3); 
     }
 }

@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance;
+    private Touch touch;
     GameManager gameManager;
     public GameObject Planet;
     public float speed =4;
-    float gravity=100;
+    public float gravity=100;
     bool OnGround = false;
     float distanceToGround;
     Vector3 GroundNormal;
     private Rigidbody rb;
+
+    private void Awake()
+    {        
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     
     // Start is called before the first frame update
     void Start()
@@ -23,20 +33,21 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
 
-        if (!GameManager.isGameStarted || GameManager.isGameEnded) // Oyun baslamadiysa veya bittiyse
+        if (GameManager.isGameEnded) // Oyun bittiyse
         {
             return;
         }
-
         transform.Translate(Vector3.forward * (speed) * Time.deltaTime); // ileri dogru hareket
 
-        if (Input.GetKey(KeyCode.A))//sola donus
+
+        if (Input.touchCount > 0) // Dokunma varsa;
         {
-            transform.Rotate(0,-180*Time.deltaTime,0);
-        }
-        if (Input.GetKey(KeyCode.D))//saga donus
-        {
-            transform.Rotate(0,180*Time.deltaTime,0);
+            touch = Input.GetTouch(0); // Degiskeni atama atama
+
+            if (touch.phase == TouchPhase.Moved) // Dokunma basladiginda;
+            {
+                transform.Rotate(0f,touch.deltaPosition.x*0.2f,0f); //Dondur
+            }
         }
 
         RaycastHit hit= new RaycastHit();
@@ -62,8 +73,5 @@ public class PlayerManager : MonoBehaviour
          }
          Quaternion toRotation = Quaternion.FromToRotation(transform.up, GroundNormal)*transform.rotation;
          transform.rotation = toRotation;
-
-
-
     }
 }
