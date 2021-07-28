@@ -27,7 +27,7 @@ public class Gravity : MonoBehaviour
             distanceToGround = hit.distance;
             GroundNormal= hit.normal;
 
-            if (distanceToGround <=0.2f)
+            if (distanceToGround <=0.1f)
             {
                 OnGround=true;
             }
