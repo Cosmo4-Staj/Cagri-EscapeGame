@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637620373479624121
+      ticks: 637631472794427265
     m_Hash: 305526730
   m_LockFileStatus:
     m_FilePath: C:/Unity/EscapeGame/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637620373488925382
+      ticks: 637631472804830618
     m_Hash: 258523399
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -504,6 +504,7 @@ m_PackageAssets:
         - 7.5.3
         - 7.6.0
         - 7.7.0
+        - 7.7.1
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3018,6 +3019,7 @@ m_PackageAssets:
         - 7.5.3
         - 7.6.0
         - 7.7.0
+        - 7.7.1
         - 8.0.1
         - 8.1.0
         - 8.2.0
@@ -3168,6 +3170,7 @@ m_PackageAssets:
         - 7.5.3
         - 7.6.0
         - 7.7.0
+        - 7.7.1
         - 8.0.1
         - 8.1.0
         - 8.2.0

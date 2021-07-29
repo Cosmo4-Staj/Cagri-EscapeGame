@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
 
-        if (GameManager.isGameEnded) // Oyun bittiyse
+        if (!GameManager.isGameStarted || GameManager.isGameEnded) // Oyun baslamadiysa veya bittiyse
         {
             return;
         }

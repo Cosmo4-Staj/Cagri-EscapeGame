@@ -16,6 +16,10 @@ public class TriggerControl : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
+        if (!GameManager.isGameStarted) // Oyun baslamadiysa
+        {
+            return;
+        }
         if (other.transform.tag.Equals("Meteor")) //Arac Meteora carpti mi?
         {
             GameManager.instance.OnLevelCompleted();
